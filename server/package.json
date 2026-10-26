@@ -1,0 +1,12 @@
+{
+  "name": "stlf-server",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Domenico Di Paolo",
+  "license": "MIT",
+  "description": "Bookkeeping app to manage invoices, bills and fiscal documents, with report generation."
+}
