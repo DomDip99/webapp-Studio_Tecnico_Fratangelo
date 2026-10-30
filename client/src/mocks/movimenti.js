@@ -1,0 +1,13 @@
+// Dati inventati per sviluppare l'interfaccia. Importi in centesimi.
+// Verranno sostituiti dalle chiamate alle API.
+export const movimenti = [
+  { id: 1, data: '2026-03-10', descrizione: 'Caffè Esempio S.a.s.', note: 'Fornitura caffè fatt. 181', voce: 'Ufficio', sottovoce: 'Spese per Pulizia e Bar', operazione: 'Pagamento con assegno', conto: 'Conto corrente', entrata: null, uscita: 8450, pagata: true, doc: true },
+  { id: 2, data: '2026-04-24', descrizione: 'Caffè Esempio S.a.s.', note: 'Fornitura caffè fatt. 315', voce: 'Ufficio', sottovoce: 'Spese per Pulizia e Bar', operazione: 'Pagamento con assegno', conto: 'Conto corrente', entrata: null, uscita: 9120, pagata: false, doc: true },
+  { id: 3, data: '2026-04-28', descrizione: 'Cartoleria Demo S.r.l.', note: 'Scontrino rotoloni carta ufficio', voce: 'Ufficio', sottovoce: 'Acquisto Attrezzature', operazione: 'Addebito in Banca', conto: 'Conto corrente', entrata: null, uscita: 2350, pagata: true, doc: false },
+  { id: 4, data: '2026-05-05', descrizione: 'Toner Print S.n.c.', note: 'Toner stampante', voce: 'Ufficio', sottovoce: 'Acquisto Attrezzature', operazione: 'Carta Di Credito', conto: 'Carta di credito', entrata: null, uscita: 11900, pagata: true, doc: true },
+  { id: 5, data: '2026-05-12', descrizione: 'Cliente Prova S.r.l.', note: 'Saldo parcella', voce: 'Clienti', sottovoce: 'Parcelle', operazione: 'Ricevuta Bancaria', conto: 'Conto corrente', entrata: 150000, uscita: null, pagata: true, doc: true },
+  { id: 6, data: '2026-05-31', descrizione: 'Locatore Demo', note: 'Rata affitto maggio', voce: 'Casa', sottovoce: 'Affitto/Mutuo', operazione: 'Addebito in Banca', conto: 'Conto corrente', entrata: null, uscita: 75000, pagata: true, doc: false },
+  { id: 7, data: '2026-06-05', descrizione: 'Servizio Streaming', note: 'Abbonamento mensile', voce: 'Casa', sottovoce: 'Abbonamenti', operazione: 'Carta Di Credito', conto: 'Carta di credito', entrata: null, uscita: 1299, pagata: true, doc: false },
+  { id: 8, data: '2026-06-30', descrizione: 'Locatore Demo', note: 'Rata affitto giugno', voce: 'Casa', sottovoce: 'Affitto/Mutuo', operazione: 'Addebito in Banca', conto: 'Conto corrente', entrata: null, uscita: 75000, pagata: false, doc: false },
+  { id: 9, data: '2026-07-10', descrizione: 'Telefonia Demo', note: 'Bolletta telefono', voce: 'Ufficio', sottovoce: 'Telefono', operazione: 'Contanti', conto: 'Cassa', entrata: null, uscita: 4560, pagata: false, doc: true },
+]
