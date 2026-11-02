@@ -1,4 +1,4 @@
-const euro = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' })
+const euro = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', useGrouping: 'always' })
 
 // Gli importi sono in centesimi interi (1999 = 19,99 €)
 export function formatEuro(centesimi) {
