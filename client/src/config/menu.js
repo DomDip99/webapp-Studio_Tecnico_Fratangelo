@@ -1,7 +1,7 @@
 import {
   BsSun, BsCalendar3, BsSearch, BsJournalText, BsListNested, BsCreditCard,
   BsFolder2Open, BsBank, BsArrowLeftRight, BsClockHistory, BsTags, BsPeople,
-  BsGear, BsPersonBadge, BsBarChart, BsTools, BsReceipt,
+  BsGear, BsPersonBadge, BsCalendarDate, BsCalendarEvent, BsDownload, BsReceipt,
 } from 'react-icons/bs'
 
 export const menu = [
@@ -45,14 +45,13 @@ export const menu = [
     ],
   },
   {
-    id: 'statistiche',
-    label: 'Statistiche',
-    items: [{ label: 'Statistiche', path: '/statistiche', icon: BsBarChart }],
-  },
-  {
     id: 'utilita',
     label: 'Utilità',
-    items: [{ label: 'Utilità', path: '/utilita', icon: BsTools }],
+    items: [
+      { label: 'Data corrente', path: '/utilita/data-corrente', icon: BsCalendarDate },
+      { label: 'Anno esercizio', path: '/utilita/anno-esercizio', icon: BsCalendarEvent },
+      { label: 'Salva database', path: '/utilita/salva-database', icon: BsDownload },
+    ],
   },
   {
     id: 'fatture',
