@@ -20,3 +20,8 @@
     flex: 1;
     min-width: 0;
 }
+
+/* needed for edge browser */
+input::-ms-reveal {
+    display: none;
+}

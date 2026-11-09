@@ -56,6 +56,12 @@ export const menu = [
   {
     id: 'fatture',
     label: 'Fatture',
+    ruoli: ['admin'],
     items: [{ label: 'Fatture', path: '/fatture', icon: BsReceipt }],
   },
-]
+];
+
+// per-role visibility sections (without roles the section would be accessible to anyone)
+export function sezioniVisibili(ruolo) {
+  return menu.filter((sezione) => !sezione.ruoli || sezione.ruoli.includes(ruolo));
+};
