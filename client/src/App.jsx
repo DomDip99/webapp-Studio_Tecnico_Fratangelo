@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import RequireAuth from './auth/RequireAuth.jsx'
+import RequireRole from './auth/RequireRole.jsx'
 import Layout from './components/Layout.jsx'
 import Home from './pages/Home.jsx'
 import Login from './pages/Login.jsx'
@@ -12,8 +13,6 @@ const pagine = {
   '/gestione/prima-nota': PrimaNota,
 }
 
-const voci = menu.flatMap((sezione) => sezione.items)
-
 function App() {
   return (
     <BrowserRouter>
@@ -23,16 +22,22 @@ function App() {
         <Route element={<RequireAuth />}>
           <Route element={<Layout />}>
             <Route index element={<Home />} />
-            {voci.map(({ path, label }) => {
-              const Pagina = pagine[path]
-              return (
-                <Route
-                  key={path}
-                  path={path}
-                  element={Pagina ? <Pagina /> : <Placeholder title={label} />}
-                />
-              )
-            })}
+
+            {menu.map((sezione) => (
+              <Route key={sezione.id} element={<RequireRole ruoli={sezione.ruoli} />}>
+                {sezione.items.map(({ path, label }) => {
+                  const Pagina = pagine[path]
+                  return (
+                    <Route
+                      key={path}
+                      path={path}
+                      element={Pagina ? <Pagina /> : <Placeholder title={label} />}
+                    />
+                  )
+                })}
+              </Route>
+            ))}
+
             <Route
               path='*'
               element={<Placeholder title='Pagina non trovata' text='Questo indirizzo non esiste.' />}

@@ -2,14 +2,18 @@ import Accordion from 'react-bootstrap/Accordion'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
 import { NavLink, useLocation } from 'react-router-dom'
-import { BsPersonCircle } from 'react-icons/bs'
+import { BsPersonCircle, BsBoxArrowRight } from 'react-icons/bs'
 import dayjs from 'dayjs'
-import { menu } from '../config/menu.js'
+import { sezioniVisibili } from '../config/menu.js'
+import { useAuth } from '../auth/useAuth.js'
 
 function Sidebar({ soloDaPagare, onToggleSoloDaPagare }) {
   const { pathname } = useLocation()
+  const { user, logout } = useAuth()
+
+  const sezioni = sezioniVisibili(user.ruolo)
   const sezioneAttiva =
-    menu.find((s) => s.items.some((i) => i.path === pathname))?.id ?? 'gestione'
+    sezioni.find((s) => s.items.some((i) => i.path === pathname))?.id ?? 'gestione'
 
   return (
     <aside className='app-sidebar'>
@@ -18,7 +22,7 @@ function Sidebar({ soloDaPagare, onToggleSoloDaPagare }) {
       </NavLink>
 
       <Accordion defaultActiveKey={sezioneAttiva} flush>
-        {menu.map((sezione) => (
+        {sezioni.map((sezione) => (
           <Accordion.Item key={sezione.id} eventKey={sezione.id}>
             <Accordion.Header>{sezione.label}</Accordion.Header>
             <Accordion.Body className='p-0'>
@@ -45,13 +49,20 @@ function Sidebar({ soloDaPagare, onToggleSoloDaPagare }) {
         >
           Solo voci da pagare
         </Button>
-        <div className='small text-muted text-center mb-2'>
+        <div className='small text-muted text-center mb-3'>
           {dayjs().format('dddd D MMMM YYYY')}
         </div>
-        <div className='small'>
-          <BsPersonCircle className='me-1' />
-          Utente demo
+        <div className='d-flex align-items-center mb-2'>
+          <BsPersonCircle className='me-2 fs-4' />
+          <div className='lh-sm'>
+            <div className='fw-semibold'>{user.nome}</div>
+            <div className='small text-muted text-capitalize'>{user.ruolo}</div>
+          </div>
         </div>
+        <Button variant='outline-danger' size='sm' className='w-100' onClick={logout}>
+          <BsBoxArrowRight className='me-2' />
+          Esci
+        </Button>
       </div>
     </aside>
   )
