@@ -6,11 +6,17 @@ import Home from './pages/Home.jsx'
 import Login from './pages/Login.jsx'
 import PrimaNota from './pages/PrimaNota.jsx'
 import Placeholder from './pages/Placeholder.jsx'
+import Assegnatari from './pages/tabelle/Assegnatari.jsx'
+import Conti from './pages/tabelle/Conti.jsx'
+import Operazioni from './pages/tabelle/Operazioni.jsx'
 import { menu } from './config/menu.js'
 
 // Pagine già realizzate: tutte le altre voci del menu usano il segnaposto
 const pagine = {
   '/gestione/prima-nota': PrimaNota,
+  '/tabelle/assegnatari': Assegnatari,
+  '/tabelle/conti': Conti,
+  '/tabelle/operazioni': Operazioni,
 }
 
 function App() {

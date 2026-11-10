@@ -21,6 +21,11 @@
     min-width: 0;
 }
 
+.row-muted {
+    --bs-table-color: var(--bs-secondary-color);
+    font-style: italic;
+}
+
 /* needed for edge browser */
 input::-ms-reveal {
     display: none;
