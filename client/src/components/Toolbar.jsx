@@ -18,9 +18,9 @@ const azioni = [
 ]
 
 // "disabled" elenca gli id delle azioni da disattivare; "children" permette di aggiungere pulsanti propri
-function Toolbar({ disabled = ['registra', 'annulla'], children }) {
+function Toolbar({ disabled = ['registra', 'annulla'], label = 'Azioni', children }) {
   return (
-    <div className='d-flex flex-wrap gap-1 mb-3' role='toolbar' aria-label='Azioni'>
+    <div className='d-flex flex-wrap gap-1 mb-3' role='toolbar' aria-label={label}>
       {azioni.map(({ id, label, icon: Icon }) => (
         <Button key={id} type='button' variant='outline-secondary' size='sm' disabled={disabled.includes(id)}>
           <Icon className='me-1' />

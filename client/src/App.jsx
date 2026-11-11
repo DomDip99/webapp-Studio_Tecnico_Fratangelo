@@ -9,6 +9,8 @@ import Placeholder from './pages/Placeholder.jsx'
 import Assegnatari from './pages/tabelle/Assegnatari.jsx'
 import Conti from './pages/tabelle/Conti.jsx'
 import Operazioni from './pages/tabelle/Operazioni.jsx'
+import Clienti from './pages/tabelle/Clienti.jsx'
+import VociDiSpesa from './pages/tabelle/VociDiSpesa.jsx'
 import { menu } from './config/menu.js'
 
 // Pagine già realizzate: tutte le altre voci del menu usano il segnaposto
@@ -17,6 +19,8 @@ const pagine = {
   '/tabelle/assegnatari': Assegnatari,
   '/tabelle/conti': Conti,
   '/tabelle/operazioni': Operazioni,
+  '/tabelle/clienti': Clienti,
+  '/tabelle/voci-di-spesa': VociDiSpesa,
 }
 
 function App() {
