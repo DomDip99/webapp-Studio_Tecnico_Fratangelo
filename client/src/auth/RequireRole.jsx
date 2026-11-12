@@ -1,4 +1,4 @@
-import { Navigate, Outlet } from 'react-router-dom'
+import { Navigate, Outlet, useOutletContext } from 'react-router-dom'
 import { useAuth } from './useAuth.js'
 
 // Used inside RequireAuth, user always exists
@@ -6,9 +6,12 @@ import { useAuth } from './useAuth.js'
 function RequireRole({ ruoli }) {
   const { user } = useAuth()
 
+  // pass to the pages the context received from Layout component
+  const context = useOutletContext()
+
   if (ruoli && !ruoli.includes(user.ruolo)) return <Navigate to='/' replace />
 
-  return <Outlet />
+  return <Outlet context={context}/>
 }
 
 export default RequireRole

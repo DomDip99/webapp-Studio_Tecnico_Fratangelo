@@ -11,6 +11,7 @@ import Conti from './pages/tabelle/Conti.jsx'
 import Operazioni from './pages/tabelle/Operazioni.jsx'
 import Clienti from './pages/tabelle/Clienti.jsx'
 import VociDiSpesa from './pages/tabelle/VociDiSpesa.jsx'
+import PerVociDiSpesa from './pages/gestione/PerVociDiSpesa.jsx'
 import { menu } from './config/menu.js'
 
 // Pagine già realizzate: tutte le altre voci del menu usano il segnaposto
@@ -21,6 +22,7 @@ const pagine = {
   '/tabelle/operazioni': Operazioni,
   '/tabelle/clienti': Clienti,
   '/tabelle/voci-di-spesa': VociDiSpesa,
+  '/gestione/per-voci-di-spesa': PerVociDiSpesa,
 }
 
 function App() {
