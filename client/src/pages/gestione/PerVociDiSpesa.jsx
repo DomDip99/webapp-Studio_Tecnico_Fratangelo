@@ -23,11 +23,8 @@ import { voci } from '../../mocks/voci.js'
 import { assegnatari, conti, operazioni } from '../../mocks/tabelle.js'
 import { calcolaTotali } from '../../utils/totali.js'
 import { formatEuro } from '../../utils/format.js'
-
-const MESI = [
-  'Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno',
-  'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre',
-]
+import { MESI } from '../../utils/calendario.js'
+import Totale from '../../components/Totale.jsx'
 
 const vociItems = voci.map((v) => ({ id: v.id, label: v.nome }))
 const mesiItems = [
@@ -65,15 +62,6 @@ const azioniExtra = [
   { label: 'Documenti', icon: BsPaperclip },
   { label: 'Apri doc.', icon: BsBoxArrowUpRight },
 ]
-
-function Totale({ label, value }) {
-  return (
-    <div className='d-flex justify-content-between gap-4'>
-      <dt className='fw-normal'>{label}</dt>
-      <dd className='mb-0 text-end'>{value}</dd>
-    </div>
-  )
-}
 
 function PerVociDiSpesa() {
   const { soloDaPagare } = useOutletContext()
