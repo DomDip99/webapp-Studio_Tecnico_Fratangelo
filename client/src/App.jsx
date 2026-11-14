@@ -6,11 +6,27 @@ import Home from './pages/Home.jsx'
 import Login from './pages/Login.jsx'
 import PrimaNota from './pages/PrimaNota.jsx'
 import Placeholder from './pages/Placeholder.jsx'
+import Assegnatari from './pages/tabelle/Assegnatari.jsx'
+import Conti from './pages/tabelle/Conti.jsx'
+import Operazioni from './pages/tabelle/Operazioni.jsx'
+import Clienti from './pages/tabelle/Clienti.jsx'
+import VociDiSpesa from './pages/tabelle/VociDiSpesa.jsx'
+import PerVociDiSpesa from './pages/gestione/PerVociDiSpesa.jsx'
+import GestioneRate from './pages/gestione/GestioneRate.jsx'
+import Pratiche from './pages/gestione/Pratiche.jsx'
 import { menu } from './config/menu.js'
 
 // Pagine già realizzate: tutte le altre voci del menu usano il segnaposto
 const pagine = {
   '/gestione/prima-nota': PrimaNota,
+  '/gestione/per-voci-di-spesa': PerVociDiSpesa,
+  '/gestione/rate': GestioneRate,
+  '/gestione/pratiche': Pratiche,
+  '/tabelle/assegnatari': Assegnatari,
+  '/tabelle/conti': Conti,
+  '/tabelle/operazioni': Operazioni,
+  '/tabelle/clienti': Clienti,
+  '/tabelle/voci-di-spesa': VociDiSpesa,
 }
 
 function App() {

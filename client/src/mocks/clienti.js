@@ -1,0 +1,6 @@
+export const clienti = [
+  { id: 1, nome: 'Alfa Costruzioni S.r.l.', titolo: "Spett.le Società", indirizzo: 'Via Roma 1', cap: '10100', citta: 'Torino', provincia: 'TO', cf: '12345678901', piva: '12345678901', intestatario: 'Mario Rossi', tel1: '011 1234567', tel2: '', fax: '', email: 'info@alfa.example', archiviato: false },
+  { id: 2, nome: 'Beta Servizi S.n.c.', titolo: "Spett.le Società", indirizzo: 'Corso Italia 22', cap: '20100', citta: 'Milano', provincia: 'MI', cf: '10987654321', piva: '10987654321', intestatario: 'Laura Bianchi', tel1: '02 7654321', tel2: '333 1234567', fax: '02 7654322', email: 'amministrazione@beta.example', archiviato: false },
+  { id: 3, nome: 'Gamma Studio Associato', titolo: "Spett.le Studio", indirizzo: 'Piazza Verdi 5', cap: '40100', citta: 'Bologna', provincia: 'BO', cf: '11223344556', piva: '11223344556', intestatario: '', tel1: '051 5551234', tel2: '', fax: '', email: '', archiviato: false },
+  { id: 4, nome: 'Delta Impianti S.p.A.', titolo: "Spett.le Società", indirizzo: 'Via Garibaldi 80', cap: '50100', citta: 'Firenze', provincia: 'FI', cf: '66778899001', piva: '66778899001', intestatario: 'Paolo Verdi', tel1: '055 4443210', tel2: '', fax: '', email: 'delta@delta.example', archiviato: true },
+]

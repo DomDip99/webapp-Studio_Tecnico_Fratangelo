@@ -4,6 +4,7 @@ import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './AuthProvider.jsx'
 import RequireAuth from './RequireAuth.jsx'
 import RequireRole from './RequireRole.jsx'
+import { Outlet, useOutletContext } from 'react-router-dom'
 
 function renderRiservata(user) {
   sessionStorage.setItem('stlf-user', JSON.stringify(user))
@@ -40,5 +41,41 @@ describe('RequireRole', () => {
 
     expect(screen.getByRole('heading', { name: 'Home' })).toBeInTheDocument()
     expect(screen.queryByText('Area riservata')).not.toBeInTheDocument()
+  })
+})
+
+function LeggiContesto() {
+  const { soloDaPagare } = useOutletContext()
+  return <p>soloDaPagare: {String(soloDaPagare)}</p>
+}
+
+describe('RequireRole e contesto del Layout', () => {
+  beforeEach(() => {
+    sessionStorage.clear()
+  })
+
+  it('passa alle pagine il contesto ricevuto dal Layout', () => {
+    sessionStorage.setItem(
+      'stlf-user',
+      JSON.stringify({ username: 'admin', nome: 'Admin Demo', ruolo: 'admin' }),
+    )
+
+    render(
+      <AuthProvider>
+        <MemoryRouter initialEntries={['/riservata']}>
+          <Routes>
+            <Route element={<RequireAuth />}>
+              <Route element={<Outlet context={{ soloDaPagare: true }} />}>
+                <Route element={<RequireRole ruoli={['admin']} />}>
+                  <Route path='/riservata' element={<LeggiContesto />} />
+                </Route>
+              </Route>
+            </Route>
+          </Routes>
+        </MemoryRouter>
+      </AuthProvider>
+    )
+
+    expect(screen.getByText('soloDaPagare: true')).toBeInTheDocument()
   })
 })
