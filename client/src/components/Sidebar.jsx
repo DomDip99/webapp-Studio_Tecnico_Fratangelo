@@ -15,6 +15,9 @@ function Sidebar({ soloDaPagare, onToggleSoloDaPagare }) {
   const sezioneAttiva =
     sezioni.find((s) => s.items.some((i) => i.path === pathname))?.id ?? 'gestione'
 
+  const voceCorrente = sezioni.flatMap((s) => s.items).find((i) => i.path === pathname)
+  const etichettaFiltro = voceCorrente?.filtro ?? 'Solo voci da pagare'
+
   return (
     <aside className='app-sidebar'>
       <NavLink to='/' className='p-3 fs-5 fw-bold text-body text-decoration-none'>
@@ -47,7 +50,7 @@ function Sidebar({ soloDaPagare, onToggleSoloDaPagare }) {
           aria-pressed={soloDaPagare}
           onClick={onToggleSoloDaPagare}
         >
-          Solo voci da pagare
+          {etichettaFiltro}
         </Button>
         <div className='small text-muted text-center mb-3'>
           {dayjs().format('dddd D MMMM YYYY')}

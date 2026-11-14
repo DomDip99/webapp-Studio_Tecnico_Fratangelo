@@ -9,17 +9,17 @@ import Sidebar from './Sidebar.jsx'
 const admin = { username: 'admin', nome: 'Admin Demo', ruolo: 'admin' }
 const utente = { username: 'utente', nome: 'Utente Demo', ruolo: 'utente' }
 
-function renderSidebar(user) {
+function renderSidebar(user, percorso = '/') {
   sessionStorage.setItem('stlf-user', JSON.stringify(user))
 
   return render(
     <AuthProvider>
-      <MemoryRouter initialEntries={['/']}>
+      <MemoryRouter initialEntries={[percorso]}>
         <Routes>
           <Route path='/login' element={<h1>Accedi</h1>} />
           <Route element={<RequireAuth />}>
             <Route
-              path='/'
+              path='*'
               element={<Sidebar soloDaPagare={false} onToggleSoloDaPagare={() => {}} />}
             />
           </Route>
@@ -62,5 +62,17 @@ describe('Sidebar', () => {
 
     expect(await screen.findByRole('heading', { name: 'Accedi' })).toBeInTheDocument()
     expect(sessionStorage.getItem('stlf-user')).toBeNull()
+  })
+  it('il filtro si chiama "Solo voci da pagare" nelle pagine normali', () => {
+    renderSidebar(admin, '/gestione/prima-nota')
+
+    expect(screen.getByRole('button', { name: 'Solo voci da pagare' })).toBeInTheDocument()
+  })
+
+  it('nella pagina Pratiche il filtro si chiama "Prat. non concluse"', () => {
+    renderSidebar(admin, '/gestione/pratiche')
+
+    expect(screen.getByRole('button', { name: 'Prat. non concluse' })).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Solo voci da pagare' })).not.toBeInTheDocument()
   })
 })

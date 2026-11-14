@@ -21,7 +21,7 @@ export const menu = [
       { label: 'Prima nota', path: '/gestione/prima-nota', icon: BsJournalText },
       { label: 'Per voci di spesa', path: '/gestione/per-voci-di-spesa', icon: BsListNested },
       { label: 'Gestione rate', path: '/gestione/rate', icon: BsCreditCard },
-      { label: 'Pratiche', path: '/gestione/pratiche', icon: BsFolder2Open },
+      { label: 'Pratiche', path: '/gestione/pratiche', icon: BsFolder2Open, filtro: 'Prat. non concluse' },
     ],
   },
   {
