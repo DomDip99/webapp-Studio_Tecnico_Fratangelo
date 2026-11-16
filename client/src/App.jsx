@@ -14,10 +14,12 @@ import VociDiSpesa from './pages/tabelle/VociDiSpesa.jsx'
 import PerVociDiSpesa from './pages/gestione/PerVociDiSpesa.jsx'
 import GestioneRate from './pages/gestione/GestioneRate.jsx'
 import Pratiche from './pages/gestione/Pratiche.jsx'
+import Calendario from './pages/situazione/Calendario.jsx'
 import { menu } from './config/menu.js'
 
 // Pagine già realizzate: tutte le altre voci del menu usano il segnaposto
 const pagine = {
+  '/situazione/calendario': Calendario,
   '/gestione/prima-nota': PrimaNota,
   '/gestione/per-voci-di-spesa': PerVociDiSpesa,
   '/gestione/rate': GestioneRate,
