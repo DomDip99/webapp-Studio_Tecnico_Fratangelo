@@ -39,3 +39,9 @@ export function settimaneDelMese(iso) {
     }),
   )
 }
+
+// "mercoledì 4 novembre 2026"
+export function dataEstesa(iso) {
+  const d = dayjs(iso)
+  return `${nomeGiorno(iso)} ${d.date()} ${nomeMese(iso).toLowerCase()} ${d.year()}`
+}

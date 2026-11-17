@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { etichettaGiorno, giorniDelMese, nomeGiorno, settimaneDelMese } from './calendario.js'
+import { dataEstesa, etichettaGiorno, giorniDelMese, nomeGiorno, settimaneDelMese } from './calendario.js'
 
 describe('nomeGiorno', () => {
   it('parte dal lunedì', () => {
@@ -46,5 +46,11 @@ describe('settimaneDelMese', () => {
 
     expect(settimane).toHaveLength(4)
     expect(settimane.flat().every((giorno) => giorno.delMese)).toBe(true)
+  })
+})
+
+describe('dataEstesa', () => {
+  it('scrive giorno della settimana, data e mese in italiano', () => {
+    expect(dataEstesa('2026-11-04')).toBe('mercoledì 4 novembre 2026')
   })
 })
