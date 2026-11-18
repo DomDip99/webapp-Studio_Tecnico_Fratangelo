@@ -16,6 +16,9 @@ import GestioneRate from './pages/gestione/GestioneRate.jsx'
 import Pratiche from './pages/gestione/Pratiche.jsx'
 import Calendario from './pages/situazione/Calendario.jsx'
 import Oggi from './pages/situazione/Oggi.jsx'
+import Movimenti from './pages/conti/Movimenti.jsx'
+import SituazioneConti from './pages/conti/SituazioneConti.jsx'
+import Storico from './pages/conti/Storico.jsx'
 import { menu } from './config/menu.js'
 
 // Pagine già realizzate: tutte le altre voci del menu usano il segnaposto
@@ -26,6 +29,9 @@ const pagine = {
   '/gestione/per-voci-di-spesa': PerVociDiSpesa,
   '/gestione/rate': GestioneRate,
   '/gestione/pratiche': Pratiche,
+  '/conti/situazione': SituazioneConti,
+  '/conti/movimenti': Movimenti,
+  '/conti/storico': Storico,
   '/tabelle/assegnatari': Assegnatari,
   '/tabelle/conti': Conti,
   '/tabelle/operazioni': Operazioni,
