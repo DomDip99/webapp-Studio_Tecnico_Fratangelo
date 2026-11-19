@@ -14,14 +14,26 @@ import VociDiSpesa from './pages/tabelle/VociDiSpesa.jsx'
 import PerVociDiSpesa from './pages/gestione/PerVociDiSpesa.jsx'
 import GestioneRate from './pages/gestione/GestioneRate.jsx'
 import Pratiche from './pages/gestione/Pratiche.jsx'
+import Calendario from './pages/situazione/Calendario.jsx'
+import Oggi from './pages/situazione/Oggi.jsx'
+import RicercaVoce from './pages/situazione/RicercaVoce.jsx'
+import Movimenti from './pages/conti/Movimenti.jsx'
+import SituazioneConti from './pages/conti/SituazioneConti.jsx'
+import Storico from './pages/conti/Storico.jsx'
 import { menu } from './config/menu.js'
 
 // Pagine già realizzate: tutte le altre voci del menu usano il segnaposto
 const pagine = {
+  '/situazione/calendario': Calendario,
+  '/situazione/oggi': Oggi,
+  '/situazione/ricerca-voce': RicercaVoce,
   '/gestione/prima-nota': PrimaNota,
   '/gestione/per-voci-di-spesa': PerVociDiSpesa,
   '/gestione/rate': GestioneRate,
   '/gestione/pratiche': Pratiche,
+  '/conti/situazione': SituazioneConti,
+  '/conti/movimenti': Movimenti,
+  '/conti/storico': Storico,
   '/tabelle/assegnatari': Assegnatari,
   '/tabelle/conti': Conti,
   '/tabelle/operazioni': Operazioni,
