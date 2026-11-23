@@ -111,7 +111,7 @@ describe('App: flussi', () => {
   it("l'admin entra in Fatture", () => {
     renderApp('/fatture', admin)
 
-    expect(main().getByRole('heading', { level: 2, name: 'Fatture' })).toBeInTheDocument()
+    expect(main().getByRole('heading', { level: 2, name: 'Gestione fatture' })).toBeInTheDocument()
   })
 
   it('un utente senza il ruolo admin viene rimandato alla home da Fatture', async () => {
