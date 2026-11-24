@@ -20,6 +20,10 @@ import RicercaVoce from './pages/situazione/RicercaVoce.jsx'
 import Movimenti from './pages/conti/Movimenti.jsx'
 import SituazioneConti from './pages/conti/SituazioneConti.jsx'
 import Storico from './pages/conti/Storico.jsx'
+import DataCorrente from './pages/utilita/DataCorrente.jsx'
+import AnnoEsercizio from './pages/utilita/AnnoEsercizio.jsx'
+import SalvaDatabase from './pages/utilita/SalvaDatabase.jsx'
+import Fatture from './pages/fatture/Fatture.jsx'
 import { menu } from './config/menu.js'
 
 // Pagine già realizzate: tutte le altre voci del menu usano il segnaposto
@@ -39,6 +43,10 @@ const pagine = {
   '/tabelle/operazioni': Operazioni,
   '/tabelle/clienti': Clienti,
   '/tabelle/voci-di-spesa': VociDiSpesa,
+  '/utilita/data-corrente': DataCorrente,
+  '/utilita/anno-esercizio': AnnoEsercizio,
+  '/utilita/salva-database': SalvaDatabase,
+  '/fatture': Fatture,
 }
 
 function AppRoutes() {

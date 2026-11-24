@@ -51,6 +51,18 @@ describe('App: rotte', () => {
 
     expect(main().getByRole('heading', { level: 2, name: 'Pagina non trovata' })).toBeInTheDocument()
   })
+
+  it.each(percorsi)('la pagina %s non è più un segnaposto', (percorso) => {
+    renderApp(percorso, admin)
+
+    expect(screen.queryByText('Sezione in costruzione.')).not.toBeInTheDocument()
+  })
+
+  it('Statistiche non esiste: è stata tolta dal menu', () => {
+    renderApp('/statistiche', admin)
+
+    expect(main().getByRole('heading', { level: 2, name: 'Pagina non trovata' })).toBeInTheDocument()
+  })
 })
 
 describe('App: flussi', () => {
@@ -111,7 +123,7 @@ describe('App: flussi', () => {
   it("l'admin entra in Fatture", () => {
     renderApp('/fatture', admin)
 
-    expect(main().getByRole('heading', { level: 2, name: 'Fatture' })).toBeInTheDocument()
+    expect(main().getByRole('heading', { level: 2, name: 'Gestione fatture' })).toBeInTheDocument()
   })
 
   it('un utente senza il ruolo admin viene rimandato alla home da Fatture', async () => {
@@ -119,5 +131,42 @@ describe('App: flussi', () => {
 
     expect(await screen.findByRole('heading', { name: 'Benvenuto, Utente Demo' })).toBeInTheDocument()
     await screen.findByText('Server online')
+  })
+
+  it.each([
+    ['admin', admin, ['Situazione', 'Gestione', 'Conti', 'Tabelle', 'Utilità', 'Fatture']],
+    ['utente', utente, ['Situazione', 'Gestione', 'Conti', 'Tabelle', 'Utilità']],
+  ])('il menu di %s mostra le sezioni previste', async (_ruolo, utenteProva, attese) => {
+    renderApp('/', utenteProva)
+    await screen.findByText('Server online')
+
+  // le intestazioni delle sezioni sono i pulsanti dell'accordion, gli unici con aria-expanded
+    const sezioni = within(screen.getByRole('complementary'))
+      .getAllByRole('button')
+      .filter((pulsante) => pulsante.hasAttribute('aria-expanded'))
+      .map((pulsante) => pulsante.textContent)
+
+    expect(sezioni).toEqual(attese)
+  })
+
+  it('il filtro cambia nome in Pratiche e resta attivo tra le pagine', async () => {
+    const user = userEvent.setup()
+    renderApp('/gestione/prima-nota', admin)
+
+    await user.click(screen.getByRole('button', { name: 'Solo voci da pagare' }))
+    await user.click(screen.getByRole('link', { name: 'Pratiche' }))
+
+    expect(screen.getByRole('button', { name: 'Prat. non concluse' })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    )
+    expect(screen.queryByRole('button', { name: 'Solo voci da pagare' })).not.toBeInTheDocument()
+
+    await user.click(screen.getByRole('link', { name: 'Prima nota' }))
+
+    expect(screen.getByRole('button', { name: 'Solo voci da pagare' })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    )
   })
 })

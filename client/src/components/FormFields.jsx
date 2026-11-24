@@ -16,20 +16,27 @@ function Campo({ campo, valore }) {
     )
   }
 
+  let controllo
+  if (type === 'select') {
+    controllo = (
+      <Form.Select defaultValue={valore ?? ''}>
+        {options.map((o) => (
+          <option key={o} value={o}>
+            {o}
+          </option>
+        ))}
+      </Form.Select>
+    )
+  } else if (type === 'textarea') {
+    controllo = <Form.Control as='textarea' rows={3} defaultValue={valore ?? ''} readOnly={readOnly} />
+  } else {
+    controllo = <Form.Control type='text' defaultValue={valore ?? ''} readOnly={readOnly} />
+  }
+
   return (
     <Form.Group controlId={`campo-${name}`}>
       <Form.Label>{label}</Form.Label>
-      {type === 'select' ? (
-        <Form.Select defaultValue={valore ?? ''}>
-          {options.map((o) => (
-            <option key={o} value={o}>
-              {o}
-            </option>
-          ))}
-        </Form.Select>
-      ) : (
-        <Form.Control type='text' defaultValue={valore ?? ''} readOnly={readOnly} />
-      )}
+      {controllo}
     </Form.Group>
   )
 }
