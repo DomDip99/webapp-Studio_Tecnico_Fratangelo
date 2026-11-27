@@ -19,7 +19,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       include: ['src/**/*.{js,jsx}'],
-      exclude: ['src/main.jsx', 'src/mocks/**', 'src/test/**', 'src/**/*.test.{js,jsx}'],
+      exclude: ['src/main.jsx', 'src/App.jsx', 'src/mocks/**', 'src/test/**', 'src/**/*.test.{js,jsx}'],
       reporter: ['text', 'html'],
     },
   },

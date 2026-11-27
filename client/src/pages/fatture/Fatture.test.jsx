@@ -171,4 +171,16 @@ describe('Fatture: pannello di calcolo', () => {
 
     expect(screen.getByLabelText('Onorario')).toHaveValue('800,00')
   })
+
+  it('si ricalcola quando si cambiano le spese', async () => {
+    const user = userEvent.setup()
+    render(<Fatture />)
+
+    await user.clear(screen.getByLabelText('Spese'))
+    await user.type(screen.getByLabelText('Spese'), '250,00')
+
+  // le spese si sommano alla fine, fuori da IVA e ritenuta: 1.281,00 + 250,00
+    expect(valore('Totale')).toBe('1.281,00 €')
+    expect(valore('TOTALE')).toBe('1.531,00 €')
+  })
 })
